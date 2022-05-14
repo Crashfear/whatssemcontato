@@ -34,7 +34,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: deploy_dist
-        path: dist
+        path: dist/whats-sem-contato-app
         
   ftp-deploy:
     needs: build
