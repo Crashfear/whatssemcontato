@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.title.setTitle('Whats Sem Salvar Contato');
+    this.title.setTitle('Whats Sem Contato');
       this.setUpAnalytics();
   }
 
