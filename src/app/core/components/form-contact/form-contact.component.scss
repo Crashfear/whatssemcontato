@@ -1,0 +1,41 @@
+.btn-enviar{
+    margin-left: 10rem;
+    background: #00a884;
+    width: 100%;
+    margin-left: 0px;
+    margin-top: 5px;
+}
+
+.mat-select-value{
+    color:#fff !important;
+}
+
+.mat-form-field{
+    background: #202c33;
+    color: #fff;
+    width: 100%;
+}
+
+::ng-deep .mat-select-value-text{
+    color: #fff;
+}
+
+::ng-deep .mat-select-panel{
+    background: #202c33 !important;
+}
+
+::ng-deep .mat-option-text{
+    color: #fff;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+    color: #00a884 !important;
+}
+
+::ng-deep .mat-form-field-label {
+    color: #00a884 !important;
+}
+
+::ng-deep .mat-form-field-ripple {
+    background-color: #00a884 !important;
+}

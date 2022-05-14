@@ -1,0 +1,46 @@
+<div class="container">
+      <form [formGroup]="formContact" (submit)="onSubmit()">
+        <div class="row gx-0">
+            <div class="col">
+                <mat-form-field class="form-field" appearance="fill">
+                <mat-label> Código do país
+                </mat-label>
+                <mat-select formControlName="ddi" name="ddi">
+                    <mat-option *ngFor="let contryCode of contryCodes" [value]="contryCode.phone_code">
+                        {{contryCode.country_code}} - {{contryCode.country_en}} - {{contryCode.phone_code}}
+                    </mat-option>
+                </mat-select>
+                <!-- <input matInput formControlName="ddi" required> -->
+                <mat-error *ngIf="formContact.controls.ddi.touched && formContact.controls.ddi.invalid">
+                    <span *ngIf="formContact.controls.ddi.errors.required">O DDI é Obrigatorio.</span>
+                </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field class="form-field" appearance="fill">
+                <mat-label> DDD
+                </mat-label>
+                <input matInput formControlName="ddd" type="text">
+                <mat-error *ngIf="formContact.controls.ddd.touched && formContact.controls.ddd.invalid">
+                    <span *ngIf="formContact.controls.ddd.errors.required">O DDD é Obrigatorio.</span>
+                </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label> Telefone
+                    </mat-label>
+                    <input matInput formControlName="phoneNumber" type="text">
+                    <mat-error *ngIf="formContact.controls.phoneNumber.touched && formContact.controls.phoneNumber.invalid">
+                    <span *ngIf="formContact.controls.phoneNumber.errors.required">O Telefone é Obrigatorio.</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col">
+            <button mat-raised-button color="primary" class="btn-enviar" type="submit">Enviar</button>
+             </div>
+        </div>
+      </form>
+  </div>
