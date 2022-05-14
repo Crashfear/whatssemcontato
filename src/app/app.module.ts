@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { HomeModule } from './core/components/home/home.module';
 
 import {HttpClientModule, HttpHandler} from '@angular/common/http';
+import { SharedLinksComponent } from './core/components/shared-links/shared-links.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    
   ],
   imports: [
     BrowserModule,

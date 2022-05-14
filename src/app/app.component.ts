@@ -21,11 +21,24 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.title.setTitle('Whats Sem Contato');
       this.setUpAnalytics();
-      this.metaTagService.addTags([
-        {name: 'description', content: 'Pagina, para enviar mensagens de whatsapp sem salvar o contato'},
-        {name: 'autor', content: 'goliveira'},
-        {name: 'keywords', content: 'Whatsapp, sem salvar contato, whatsapp sem salvar contato'}
-    ]);
+    //   this.metaTagService.addTags([
+    //     {name: 'url', content: 'https://whatssemcontato.io'},
+    //     {name: 'description', content: 'Olha que legal! Aqui você consegue enviar mensagens para destinatários no WhatsApp sem adicionar o contato.'},
+    //     {name: 'title', content: 'Olha que legal! Aqui você consegue enviar mensagens para destinatários no WhatsApp sem adicionar o contato.'},
+    //     {name: 'autor', content: 'goliveira'},
+    //     {name: 'keywords', content: 'Whatsapp, Salvar Contato, Whatsapp sem salvar contato'},
+    //     {name:'thumbnail', content: '/assets/whatsapp-image.jpg'},
+    //     {property: 'og:url', content: 'https://whatssemcontato.io'},
+    //     {property: 'og:type', content: 'website'},
+    //     {property: 'og:description', content: 'Olha que legal! Aqui você consegue enviar mensagens para destinatários no WhatsApp sem adicionar o contato.'},
+    //     {property: 'og:title', content: 'Olha que legal! Aqui você consegue enviar mensagens para destinatários no WhatsApp sem adicionar o contato.'},
+    //     {property:'og:image:type', content: 'image/jpeg'},
+    //     {property:'og:image:width', content: '300'},
+    //     {property:'og:image:height', content: '300'},
+    //     {property:'og:image', content: 'https://whatssemcontato.io/assets/whatsapp-image.jpg'},
+    //     {property:'og:site_name', content: 'Whats Sem Contato'},
+    //     {property:'og:locale', content: 'pt_BR'},
+    // ]);
   }
 
   setUpAnalytics() {
