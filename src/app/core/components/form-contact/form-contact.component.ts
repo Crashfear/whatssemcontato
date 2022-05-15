@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CountryCodesService } from '../../services/country-codes/country-codes.service';
 import { Contact } from '../model/contact.model';
 import { saveAs} from 'file-saver';
+import { GoogleAnalyticsService } from '../../../shared/services/google-analytics/google-analytics-service.service'
+
 @Component({
   selector: 'app-form-contact',
   templateUrl: './form-contact.component.html',
@@ -13,7 +15,8 @@ export class FormContactComponent implements OnInit {
   formContact: FormGroup | any;
   contryCodes: any;
   constructor(private formBuilder: FormBuilder,
-              private contryCodesService: CountryCodesService) { }
+              private contryCodesService: CountryCodesService,
+              private googleAnalyticsService: GoogleAnalyticsService ) { }
 
   ngOnInit(): void {
     this.createForm(new Contact());
@@ -57,6 +60,9 @@ export class FormContactComponent implements OnInit {
     let ddd = this.formContact.controls['ddd'].value;
     let phoneNumber = this.formContact.controls['phoneNumber'].value;
     let whatsappLink = `https://api.whatsapp.com/send?phone=${ddi}${ddd}${phoneNumber}`;
+
+    this.googleAnalyticsService.eventEmitter("open_whats_link", "link", "form_contact", "click", 10);
+
     window.open(whatsappLink);
   }
 }
