@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { FormContactComponent } from '../form-contact/form-contact.component';
 import { HeaderComponent } from '../header/header.component';

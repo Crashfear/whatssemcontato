@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CountryCodesService } from '../../services/country-codes/country-codes.service';
 import { Contact } from '../model/contact.model';
-import { saveAs} from 'file-saver';
 import { GoogleAnalyticsService } from '../../../shared/services/google-analytics/google-analytics-service.service'
 
 @Component({
