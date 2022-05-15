@@ -18,6 +18,7 @@ export class FormContactComponent implements OnInit {
   ngOnInit(): void {
     this.createForm(new Contact());
     this.contryCodes = this.contryCodesService.getContryCodes();
+    this.onFormChanges();
   }
   createForm(contac: Contact) {
     this.formContact = this.formBuilder.group({
@@ -27,10 +28,24 @@ export class FormContactComponent implements OnInit {
     })
   }
 
+  onFormChanges(){
+    this.formContact.valueChanges.subscribe((value: any) => {
+      const phoneNumber = value['phoneNumber'];
+      const isBrazil = value['ddi'] == 55;
+      const isnum = /^\d+$/.test(phoneNumber);
+      if(isnum && phoneNumber.length > 9 && isBrazil){
+        console.log(phoneNumber);
+        const ddd = phoneNumber.substring(0,2);
+        const normalizedPhoneNumber = phoneNumber.slice(2);
+        this.formContact.controls['phoneNumber'].setValue(normalizedPhoneNumber);
+        this.formContact.controls['ddd'].setValue(ddd);
+      }
+    });
+  }
+
   getCountryInfos(){
     let country_phone = this.formContact.controls['ddi'].value;
     let country = this.contryCodes.filter((item: { phone_code: any; }) => item?.phone_code == country_phone);
-    console.log(country);
     return country;
   }
 
