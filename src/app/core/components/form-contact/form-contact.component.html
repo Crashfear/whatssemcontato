@@ -6,13 +6,16 @@
                 <mat-label> Código do país
                 </mat-label>
                 <mat-select formControlName="ddi" name="ddi">
+                    <mat-select-trigger>
+                        <img src="{{'/assets/flags/' + getCountryInfos()[0].country_code + '.png'}}" class="img-flag" width="20" height="15" />  {{getCountryInfos()[0].country_en}} - {{ getCountryInfos()[0].phone_code }}
+                    </mat-select-trigger>
                     <mat-option *ngFor="let contryCode of contryCodes" [value]="contryCode.phone_code">
-                        {{contryCode.country_code}} - {{contryCode.country_en}} - {{contryCode.phone_code}}
+                     <img src="{{'/assets/flags/' + contryCode.country_code + '.png'}}" class="img-flag" width="25" height="20" />  {{contryCode.country_en}} - {{contryCode.phone_code}}
                     </mat-option>
                 </mat-select>
-                <!-- <input matInput formControlName="ddi" required> -->
                 <mat-error *ngIf="formContact.controls.ddi.touched && formContact.controls.ddi.invalid">
                     <span *ngIf="formContact.controls.ddi.errors.required">O DDI é Obrigatorio.</span>
+                    <span *ngIf="formContact.controls.ddi.errors.pattern">Apenas números são permitidos.</span>
                 </mat-error>
                 </mat-form-field>
             </div>
@@ -23,6 +26,7 @@
                 <input matInput formControlName="ddd" type="text">
                 <mat-error *ngIf="formContact.controls.ddd.touched && formContact.controls.ddd.invalid">
                     <span *ngIf="formContact.controls.ddd.errors.required">O DDD é Obrigatorio.</span>
+                    <span *ngIf="formContact.controls.ddd.errors.pattern">Apenas números são permitidos.</span>
                 </mat-error>
                 </mat-form-field>
             </div>
@@ -33,6 +37,7 @@
                     <input matInput formControlName="phoneNumber" type="text">
                     <mat-error *ngIf="formContact.controls.phoneNumber.touched && formContact.controls.phoneNumber.invalid">
                     <span *ngIf="formContact.controls.phoneNumber.errors.required">O Telefone é Obrigatorio.</span>
+                    <span *ngIf="formContact.controls.phoneNumber.errors.pattern">Apenas números são permitidos.</span>
                     </mat-error>
                 </mat-form-field>
             </div>

@@ -6,6 +6,9 @@
     margin-top: 5px;
 }
 
+.img-flag{
+    margin-right: 10px;
+}
 .mat-select-value{
     color:#fff !important;
 }
@@ -38,4 +41,8 @@
 
 ::ng-deep .mat-form-field-ripple {
     background-color: #00a884 !important;
+}
+
+::ng-deep .mat-option-text{
+    line-height: 10px;
 }
