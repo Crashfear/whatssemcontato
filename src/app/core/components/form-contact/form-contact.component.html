@@ -7,10 +7,10 @@
                 </mat-label>
                 <mat-select formControlName="ddi" name="ddi">
                     <mat-select-trigger>
-                        <img src="{{'/assets/flags/' + getCountryInfos()[0].country_code + '.png'}}" class="img-flag" width="20" height="15" />  {{getCountryInfos()[0].country_en}} - {{ getCountryInfos()[0].phone_code }}
+                        <img src="{{'/assets/flags/' + getCountryInfos()[0].country_code + '.png'}}"  alt="{{ 'flag_' + getCountryInfos()[0].country_en }}" class="img-flag" width="20" height="15" />  {{getCountryInfos()[0].country_en}} - {{ getCountryInfos()[0].phone_code }}
                     </mat-select-trigger>
                     <mat-option *ngFor="let contryCode of contryCodes" [value]="contryCode.phone_code">
-                     <img src="{{'/assets/flags/' + contryCode.country_code + '.png'}}" class="img-flag" width="25" height="20" />  {{contryCode.country_en}} - {{contryCode.phone_code}}
+                     <img src="{{'/assets/flags/' + contryCode.country_code + '.png'}}" alt="{{ 'flag_' + contryCode.country_en }}" class="img-flag" width="25" height="20" />  {{contryCode.country_en}} - {{contryCode.phone_code}}
                     </mat-option>
                 </mat-select>
                 <mat-error *ngIf="formContact.controls.ddi.touched && formContact.controls.ddi.invalid">
