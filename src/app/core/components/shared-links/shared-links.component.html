@@ -1,10 +1,9 @@
 <div class="row justify-content-center shred-content mt-3">
     <div class="col" align="center">
-        <ul class="share-buttons" data-source="simplesharingbuttons.com">
-            <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://whatssemcontato.io/" title="Compartilhar no Facebook" target="_blank" ><img alt="Compartilhar no Facebook" src="/assets/Facebook.png" /></a></li>
-            <li><a href="https://twitter.com/intent/tweet?url=https://whatssemcontato.io/&text=Olha%20que%20legal!%20Aqui%20voc%C3%AA%20consegue%20enviar%20mensagens%20para%20destinat%C3%A1rios%20no%20WhatsApp%20sem%20adicionar%20o%20contato." target="_blank" title="Tweet"><img alt="Tweet" src="/assets/Twitter.png" /></a></li>
-            <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=https://whatssemcontato.io/&title=WhatsApp Sem Salvar Contato&summary=Olha que legal! Aqui você consegue enviar mensagens para destinatários no WhatsApp sem adicionar o contato.&source=" target="_blank" title="Compartilhar no LinkedIn"><img alt="Compartilhar no LinkedIn" src="/assets/LinkedIn.png" /></a></li>
-            <li><a href="https://api.whatsapp.com/send?text= Olha que legal! Aqui você consegue enviar mensagens para destinatários no WhatsApp sem adicionar o contato.%0ahttps://whatssemcontato.io/" target="_blank" title="Compartilhar no WhatsApp"><img alt="Compartilhar no WhatsApp" src="/assets/whatsapp.png" /></a></li>
+        <ul class="share-buttons" data-source="simplesharingbuttons.com" >
+            <li *ngFor="let sharedLink of sharedLinks">
+                <a href="{{sharedLink.url}}" title="{{sharedLink.title}}" target="_blank" ><img alt="{{sharedLink.title}}" src="{{sharedLink.imgSource}}" /></a>
+            </li>
         </ul>
     </div>
 </div>
