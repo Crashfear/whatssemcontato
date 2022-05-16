@@ -34,7 +34,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: deploy_dist
-        path: dist/whatssemcontatoapp
+        path: dist
         
   ftp-deploy:
     needs: build
@@ -54,6 +54,6 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USER }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: dist/
-        server-dir: ${{ secrets.FTP_APP_DIR }}
+        local-dir: ./dist/
+        server-dir: ./apps_nodejs/
         dangerous-clean-slate: true # optional
