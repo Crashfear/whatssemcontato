@@ -43,11 +43,11 @@ jobs:
      - name: executing remote ssh for delete pm2 app
        uses: appleboy/ssh-action@master
        with:
-        host: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USER }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        port: ${{ secrets.22 }}
-        script: pm2 delete 0
+          host: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.22 }}
+          script: pm2 delete 0
         
   ftp-deploy:
     needs: ssh-command
