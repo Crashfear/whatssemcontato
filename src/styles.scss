@@ -40,3 +40,36 @@ body { margin: 0; font-family: 'Helvetica', "Helvetica Neue", sans-serif; }
 .whats-app-background{
   background-image: url("/assets/whatsapp_back_ground.webp");
 }
+
+
+
+
+@media screen and (max-width: 767px) {
+  h1 {
+    font-size: 20px !important;
+    line-height: 20px !important;
+  }
+  h3 {
+    font-size: 15px !important;
+    line-height: 15px !important;
+  }
+  .img-whats-app {
+    margin-bottom: 5px !important;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  h1 {
+    font-size: 15px !important;
+    line-height: 15px !important;
+  }
+
+  h3 {
+    font-size: 13px !important;
+    line-height: 13px !important;
+  }
+
+  .img-whats-app {
+    margin-bottom: 5px !important;
+  }
+}
