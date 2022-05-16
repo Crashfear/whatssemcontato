@@ -34,23 +34,10 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: deploy_dist
-        path: dist
-        
-  ssh-command: 
-    needs: build
-    runs-on: ubuntu-latest
-    steps: 
-     - name: executing remote ssh for delete pm2 app
-       uses: appleboy/ssh-action@master
-       with:
-          host: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: 22
-          script: pm2 delete 0
+        path: dist/whatssemcontatoapp
         
   ftp-deploy:
-    needs: ssh-command
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
@@ -67,6 +54,6 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USER }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: ${{ secrets.FTP_APP_DIR }}
         local-dir: dist/
+        server-dir: ${{ secrets.FTP_APP_DIR }}
         dangerous-clean-slate: true # optional
