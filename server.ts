@@ -11,7 +11,6 @@ import { existsSync } from 'fs';
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
-  
   const distFolder = join(process.cwd(), 'dist/whats-sem-contato-app/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
@@ -38,15 +37,37 @@ export function app(): express.Express {
   return server;
 }
 
-function run(): void {
-  const port = process.env.PORT || 4000;
+function isRunningOnApachePassenger(): boolean {
+  return moduleFilename.includes('lsnode.js');
+}
 
+function run(): void {
   // Start up the Node server
   const server = app();
+
+  if (isRunningOnApachePassenger()) {
+    server.listen(() => {
+      console.log('Node Express listening to Passenger Apache');
+    });
+    return;
+  }
+
+  const port = process.env['PORT'] || 4000;
+
   server.listen(port, () => {
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
 }
+
+// function run(): void {
+//   const port = process.env.PORT || 4000;
+
+//   // Start up the Node server
+//   const server = app();
+//   server.listen(port, () => {
+//     console.log(`Node Express server listening on http://localhost:${port}`);
+//   });
+// }
 
 // Webpack will replace 'require' with '__webpack_require__'
 // '__non_webpack_require__' is a proxy to Node 'require'
@@ -54,14 +75,19 @@ function run(): void {
 declare const __non_webpack_require__: NodeRequire;
 const mainModule = __non_webpack_require__.main;
 const moduleFilename = mainModule && mainModule.filename || '';
-if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
-  run();
-}
+// if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
+//   run();
+// }
+
+if (
+  moduleFilename === __filename ||
+  moduleFilename.includes('iisnode') ||
+  isRunningOnApachePassenger()
+)
 
 // @ts-ignore
 global.window = {};
 // @ts-ignore
-global.gtag = ()=> {};    
-
+global.gtag = ()=> {};
 
 export * from './src/main.server';
