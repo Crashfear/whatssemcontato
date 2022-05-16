@@ -46,7 +46,7 @@ jobs:
           host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
-          port: ${{ secrets.22 }}
+          port: 22
           script: pm2 delete 0
         
   ftp-deploy:
