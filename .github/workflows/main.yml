@@ -49,10 +49,11 @@ jobs:
         name: deploy_dist
         path: dist
     - name: Deploy to FTP
-      uses: SamKirkland/FTP-Deploy-Action@4.2.0
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USER }}
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: ${{ secrets.FTP_APP_DIR }}
+        local-dir: dist/
         dangerous-clean-slate: true # optional
