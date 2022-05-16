@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
     this.router.events.pipe(filter(event => event instanceof NavigationEnd))
         .subscribe((event) => {
             let navigationEvent = event as NavigationEnd;
-            gtag('config', 'G-H34009DMMD',
+            gtag('config', 'UA-228728966-1',
                 {
                     page_path: navigationEvent.urlAfterRedirects
                 }
