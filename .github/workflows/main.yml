@@ -54,6 +54,6 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USER }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./dist/
-        server-dir: ./apps_nodejs/
+        local-dir: dist/
+        server-dir: home/whatssemcontato/apps_nodejs/
         dangerous-clean-slate: true # optional
